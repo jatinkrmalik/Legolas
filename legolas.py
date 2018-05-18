@@ -48,8 +48,9 @@ def handle_command(command, channel):
     response = None
     # This is where you start to implement more commands!
     if command.startswith(EXAMPLE_COMMAND):
-        urls = re.findall('https?://(?:[-\w.]|(?:%[\da-fA-F]{2}))+', command)
+        urls = re.findall('(?:(?:https?|ftp):\/\/)?[\w/\-?=%.]+\.[\w/\-?=%.]+',command)
         if urls:
+            print('Found some urls:', urls)
             response = cleanup(urls[0])
         else:
             response = "No url found, try do <url>"
