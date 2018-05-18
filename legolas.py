@@ -1,9 +1,16 @@
+"""legolas.py: main driver program for the slack bot."""
+
+__author__ = "Jatin K Malik"
+__email__ = "jatinkrmalik@gmail.com"
+__version__ = "0.1.1"
+__status__ = "Beta version"
+
 import os
 import time
 import re
 from slackclient import SlackClient
 from config import BOT_ACCESS_TOKEN
-from cleanutil import cleanup
+from evles import witchcraft
 
 # instantiate Slack client
 slack_client = SlackClient(BOT_ACCESS_TOKEN)
@@ -48,10 +55,10 @@ def handle_command(command, channel):
     response = None
     # This is where you start to implement more commands!
     if command.startswith(EXAMPLE_COMMAND):
-        urls = re.findall('(?:(?:https?|ftp):\/\/)?[\w/\-?=%.]+\.[\w/\-?=%.]+',command)
+        urls = re.findall('(?:(?:https?|ftp):\/\/)?[\w/\-?=%.]+\.[\w/\-?=%.]+',command) # to parse the url in the text.
         if urls:
             print('Found some urls:', urls)
-            response = cleanup(urls[0])
+            response = witchcraft(urls[0])
         else:
             response = "No url found, try do <url>"
 
@@ -64,7 +71,7 @@ def handle_command(command, channel):
 
 if __name__ == "__main__":
     if slack_client.rtm_connect(with_team_state=False):
-        print("Starter Bot connected and running!")
+        print("Legolas is up and running!")
         # Read bot's user ID by calling Web API method `auth.test`
         starterbot_id = slack_client.api_call("auth.test")["user_id"]
         while True:
