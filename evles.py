@@ -36,13 +36,15 @@ def witchcraft(url):
     # response['img'] = article.top_image.src
     try:
         img = article.top_image.src
-        response += '\n*Post image:* ' +  str(article.top_image.src) + ' \n'
+        response += '\n*Post image:* ' +  str(img) + ' \n'
         response += '-'*15
     except:
         print("No image found.")
     # response['post'] = article.cleaned_text
-    response += '\n *Ad-free Post:*\n' + str(article.cleaned_text) + '\n\n\n'
+    response += '\n *Ad-free Post:*\n' + str(article.cleaned_text) + '\n'
     #print('='*15)
+    response += '-'*15
+    response += "\n *Original url:* " + str(url) + '\n\n\n'
     response += '='*25
     # response['disc'] = "Beep blop beep, I am a bot. Please drop a mail to jatinkrmalik@gmail.com to report a bug"
     response += "\n_Beep blop beep, I am a bot. Please drop a mail to jatinkrmalik@gmail.com to report a bug._\n"
