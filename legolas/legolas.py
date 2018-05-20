@@ -49,7 +49,7 @@ def handle_command(command, channel):
         Executes bot command if the command is known
     """
     # Default response is help text for the user
-    default_response = "Whoops! Not sure what you mean. Try saying something on the lines of *{} url*.\n For example: *@Legolas do https://blog.shuttl.com/2018/05/13/working-mothers-how-do-you-make-it-look-so-easy/*".format(EXAMPLE_COMMAND)
+    default_response = "Whoops! Not sure what you mean. Try saying something on the lines of *{} url*.\n\n*For example:*\n@Legolas do https://blog.shuttl.com/2018/05/13/working-mothers-how-do-you-make-it-look-so-easy/".format(EXAMPLE_COMMAND)
 
     # Finds and executes the given command, filling in response
     response = None
@@ -60,7 +60,7 @@ def handle_command(command, channel):
             print('Found some urls:', urls)
             response = witchcraft(urls[0])
         else:
-            response = "I am sorry, I have limited capabilities as of now. Give me a url to work on, try *@Legolas do http://....* (some url)"
+            response = "Hey human, I couldn't find any url in your message above.\nGive me a url to work on, try *@Legolas do <url>*"
 
     # Sends the response back to the channel
     slack_client.api_call(
