@@ -26,7 +26,8 @@ def witchcraft(url):
     
     # import pdb; pdb.set_trace()
     # response = {}
-    response = ""
+    response = "Hello Human, here's your url content freed from Mordor's orc terror!\n"
+    response += '-'*15
     # response['title'] = article.title
     response += "\n*Title:* " + str(article.title) + '\n'
     response += '-'*15
