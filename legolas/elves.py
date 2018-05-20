@@ -7,6 +7,7 @@ __status__ = "Beta version"
 
 from goose3 import Goose
 import sys
+import requests
 
 def witchcraft(url):
     """
@@ -21,12 +22,15 @@ def witchcraft(url):
 
     #g = Goose()
     g = Goose({'enable_image_fetching': True})
-    
-    article = g.extract(url=url)
+    try:
+        article = g.extract(url=url)
+
+    except requests.exceptions.ConnectionError:
+        return "Sorry human, I couldn't find any knowledge behind this url! :("
     
     # import pdb; pdb.set_trace()
     # response = {}
-    response = "Hello Human, here's your url content freed from Mordor's orc terror!\n"
+    response = "Hello human, here's your url content freed from Mordor's orc terror!\n"
     response += '-'*15
     # response['title'] = article.title
     response += "\n*Title:* " + str(article.title) + '\n'

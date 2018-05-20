@@ -10,7 +10,7 @@ import time
 import re
 from slackclient import SlackClient
 from config import BOT_ACCESS_TOKEN
-from evles import witchcraft
+from elves import witchcraft
 
 # instantiate Slack client
 slack_client = SlackClient(BOT_ACCESS_TOKEN)
@@ -61,6 +61,9 @@ def handle_command(command, channel):
             response = witchcraft(urls[0])
         else:
             response = "Hey human, I couldn't find any url in your message above.\nGive me a url to work on, try *@Legolas do <url>*"
+
+    elif command.startswith("hi") or command.startswith("hello") or command.startswith("hey"):
+        response = "Hello human! I am *Legolas, son of Thranduil, the King of the Elves of Northern Mirkwood.* I am here to help you read urls without any annoying popups or ads which I feel is Sauron's plot to drive us crazy.\n\nWhenever you need my help, just say _do <url>_ and I will be at your service!"
 
     # Sends the response back to the channel
     slack_client.api_call(
