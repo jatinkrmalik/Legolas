@@ -7,7 +7,7 @@ idna==2.6
 jieba==0.39
 lxml==4.2.1
 nltk==3.4.5
-Pillow==5.1.0
+Pillow==6.2.0
 requests==2.20.0
 six==1.11.0
 slackclient==1.2.1
