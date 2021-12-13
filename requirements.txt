@@ -5,7 +5,7 @@ cssselect==1.0.3
 goose3==3.1.0
 idna==2.6
 jieba==0.39
-lxml==4.2.1
+lxml==4.6.5
 nltk==3.4.5
 Pillow==5.1.0
 requests==2.20.0
